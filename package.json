@@ -1,0 +1,13 @@
+{
+  "name": "student-budget-app",
+  "version": "0.1.0",
+  "description": "Simple budgeting and student loan planning app for college students",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}

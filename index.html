@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Personal Finance App</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="goals">Savings Goals</button>
+      <button class="tab-btn" data-tab="spend">SpendAlert</button>
+      <button class="tab-btn" data-tab="badges">Badges</button>
+      <button class="tab-btn" data-tab="manual">Manual Input</button>
+    </nav>
+    <main>
+      <section id="goals" class="tab-section active">
+        <h2>Savings Goals</h2>
+        <form id="goal-form">
+          <label>Target Amount ($)</label>
+          <input type="number" id="goal-target" min="1" required>
+          <label>Monthly Contribution ($)</label>
+          <input type="number" id="goal-monthly" min="1" required>
+          <button type="submit" class="btn">Set Goal</button>
+        </form>
+        <div id="goal-progress" class="progress-card hidden">
+          <div class="progress-info">
+            <div>Target: $<span id="goal-target-display">0</span></div>
+            <div>Saved: $<span id="goal-saved">0</span></div>
+            <div>Complete: <span id="goal-percent">0</span>%</div>
+            <div>Est. Completion: <span id="goal-date">-</span></div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="goal-bar"></div>
+          </div>
+          <form id="contribute-form">
+            <label>Add Contribution ($)</label>
+            <input type="number" id="goal-contribute" min="1">
+            <button type="submit" class="btn">Add</button>
+          </form>
+        </div>
+      </section>
+      <section id="spend" class="tab-section">
+        <h2>SpendAlert</h2>
+        <form id="spend-form">
+          <label>Spending Threshold ($)</label>
+          <input type="number" id="spend-threshold" min="1" required>
+          <label>Exclude Categories:</label>
+          <div class="categories">
+            <label><input type="checkbox" value="Rent"> Rent</label>
+            <label><input type="checkbox" value="Groceries"> Groceries</label>
+            <label><input type="checkbox" value="Utilities"> Utilities</label>
+            <label><input type="checkbox" value="Insurance"> Insurance</label>
+            <label><input type="checkbox" value="Transportation"> Transportation</label>
+            <label><input type="checkbox" value="Subscriptions"> Subscriptions</label>
+          </div>
+          <div id="custom-categories"></div>
+          <input type="text" id="custom-category-input" placeholder="Add custom category">
+          <button type="button" id="add-category" class="btn ghost">Add Category</button>
+          <button type="submit" class="btn">Set Alert</button>
+        </form>
+        <div class="spend-card">
+          <h3>Add Spending Entry</h3>
+          <form id="spending-entry-form">
+            <label>Amount ($)</label>
+            <input type="number" id="spending-amount" min="1" required>
+            <label>Category</label>
+            <input type="text" id="spending-category" placeholder="e.g. Dining" required>
+            <label>Date</label>
+            <input type="date" id="spending-date" required>
+            <button type="submit" class="btn">Add Entry</button>
+          </form>
+          <div id="spending-summary" class="muted"></div>
+        </div>
+        <div id="spend-alert" class="alert hidden"></div>
+      </section>
+      <section id="badges" class="tab-section">
+        <h2>Badges</h2>
+        <p class="muted">Unlock achievements as your financial habits improve. Locked badges are grayed out by default.</p>
+        <div id="badge-progress" class="badge-progress">0/12 unlocked</div>
+        <div class="badges-grid" id="badges-grid">
+          <!-- Badges will be rendered here -->
+        </div>
+      </section>
+      <section id="manual" class="tab-section">
+        <h2>Manual Financial Input</h2>
+        <form id="manual-form">
+          <label>Emergency Fund ($)</label>
+          <input type="number" id="manual-emergency" min="0">
+          <label>Total Savings ($)</label>
+          <input type="number" id="manual-savings" min="0">
+          <label>Total Debt ($)</label>
+          <input type="number" id="manual-debt" min="0">
+          <label>Monthly Expenses ($)</label>
+          <input type="number" id="manual-expenses" min="0">
+          <label>Investments ($)</label>
+          <input type="number" id="manual-investments" min="0">
+          <button type="submit" class="btn">Save</button>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
